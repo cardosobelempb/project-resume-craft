@@ -11,3 +11,9 @@
 ## shadcn components
 
 -   npx shadcn@latest init
+
+## dependencias
+
+## dependencias Dev
+
+-   npm i @svgr/webpack -D

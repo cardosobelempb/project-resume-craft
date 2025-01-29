@@ -1,10 +1,19 @@
 import type { Metadata } from 'next'
-import { Nunito, Nunito_Sans } from 'next/font/google'
-import './globals.css'
+import { Nunito, Nunito_Sans as NunitoSans } from 'next/font/google'
+import './../styles/globals.css'
 import { cn } from '@/lib/utils'
 
-const fontSans = Nunito_Sans({ subsets: ['latin'], variable: '--font-sans' })
-const fontTitle = Nunito({ subsets: ['latin'], variable: '--font-title' })
+const fontSans = NunitoSans({
+    subsets: ['latin'],
+    variable: '--font-sans',
+    weight: ['300', '400', '500'],
+    display: 'swap',
+})
+const fontTitle = Nunito({
+    subsets: ['latin'],
+    variable: '--font-title',
+    weight: ['200', '300', '400', '500', '700', '800'],
+})
 
 export const metadata: Metadata = {
     title: 'Resume Craft',
