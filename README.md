@@ -17,3 +17,7 @@
 ## dependencias Dev
 
 -   npm i @svgr/webpack -D
+
+## Dark mode
+
+-   npm install next-themes
