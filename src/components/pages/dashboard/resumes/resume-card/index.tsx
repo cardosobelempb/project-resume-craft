@@ -2,18 +2,23 @@ import { cn } from "@/lib/utils"
 import Link from "next/link"
 import { ReactNode } from "react"
 
-type CardButtonProps = {
+
+type ResumeButtonAddProps = {
     title: string
     description: string
     icon?: ReactNode
 }
-export const CardButton: React.FC<CardButtonProps> = ({title, description, icon}) => {
+export const ResumeButton: React.FC<ResumeButtonAddProps> = ({
+    title,
+    description,
+    icon,
+}) => {
     return (
         <button
             className={cn(
                 'w-full h-[300px] bg-muted/50 rounded border border-muted-foreground/20',
-                "flex items-center justify-center relative outline-none overflow-hidden",
-                "hover:brightness-105 dark:hover:brightness-125 transition-all"
+                'flex items-center justify-center relative outline-none overflow-hidden',
+                'hover:brightness-105 dark:hover:brightness-125 transition-all',
             )}
         >
             {icon}
@@ -25,10 +30,14 @@ export const CardButton: React.FC<CardButtonProps> = ({title, description, icon}
     )
 }
 
-export const ResumesCard = () => {
+export const ResumeCard = () => {
     return (
         <Link href={`/dasthboar/resumes/example`} className="block w-full">
-            <CardButton title="Meu Currículo" description="Última atualização há 22 minutos"/>
+
+            <ResumeButton
+                title="Meu Currículo"
+                description="Última atualização há 22 minutos"
+            />
         </Link>
     )
 }

@@ -13,6 +13,7 @@
 -   npx shadcn@latest init
 
 ## dependencias
+- npm i react-hook-form -S
 
 ## dependencias Dev
 
