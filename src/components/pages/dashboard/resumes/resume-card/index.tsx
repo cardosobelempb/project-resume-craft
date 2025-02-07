@@ -32,7 +32,7 @@ export const ResumeButton: React.FC<ResumeButtonAddProps> = ({
 
 export const ResumeCard = () => {
     return (
-        <Link href={`/dasthboar/resumes/example`} className="block w-full">
+        <Link href={`/dashboard/resumes/example`} className="block w-full">
 
             <ResumeButton
                 title="Meu Currículo"
