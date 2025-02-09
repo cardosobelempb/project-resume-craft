@@ -1,16 +1,17 @@
 'use client'
 
-import { Controller, useFormContext } from 'react-hook-form'
-import { Input } from '.'
 import { ComponentProps } from 'react'
+import { Controller, useFormContext } from 'react-hook-form'
+import { IconInput } from '.'
 import { FieldWrapper } from '../field-wrapper'
+import { Input } from '../input'
 
-type InputFieldProps = ComponentProps<typeof Input> & {
+type IconFieldProps = ComponentProps<typeof Input> & {
     label: string
     name: string
     containerClassName?: string
 }
-export const InputField: React.FC<InputFieldProps> = ({
+export const IconField: React.FC<IconFieldProps> = ({
     label,
     name,
     required,
@@ -23,11 +24,15 @@ export const InputField: React.FC<InputFieldProps> = ({
             control={control}
             name={name}
             rules={{
-                required: required && "Campo obrigatório."
+                required: required && 'Campo obrigatório.',
             }}
             render={({ field, fieldState }) => (
-                <FieldWrapper label={label} className={containerClassName} error={fieldState?.error}>
-                    <Input {...props} {...field} />
+                <FieldWrapper
+                    label={label}
+                    className={containerClassName}
+                    error={fieldState?.error}
+                >
+                    <IconInput {...props} {...field} />
                 </FieldWrapper>
             )}
         />

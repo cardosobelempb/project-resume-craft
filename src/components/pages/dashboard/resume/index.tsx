@@ -32,10 +32,7 @@ export const ResumePage = () => {
             languages: [],
             projects: [],
             skills: [],
-            socialMedias: [
-                { icon: '', name: 'Test 1', url: 'test 1', username: 'test 1' },
-                { icon: '', name: 'Test 2', url: 'test 2', username: 'test 2' },
-            ],
+            socialMedias: [],
         },
     }
     const methods = useForm<ResumeData>({

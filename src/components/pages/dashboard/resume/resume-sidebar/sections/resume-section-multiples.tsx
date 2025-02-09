@@ -2,10 +2,14 @@
 
 import { Separator } from "@/components/ui/separator";
 import { Share2, BriefcaseBusiness, GraduationCap, BicepsFlexed, Languages, FileBadge2, Globe } from "lucide-react";
-import { Fragment } from "react";
+import { Fragment, useState } from "react";
 import { ResumeMultipleDragList, ResumeMultipleDragListItemData } from "../../base/resume-multiple-drag-list";
+import { ManageMultipleItemDialog } from "../../base/manage-multiple-item-dialog";
 
 export const ResumeSectionMultiples = () => {
+
+    const [sectionToAdd, setSectionToAdd] =
+        useState<ResumeMultipleDragListItemData | null>(null)
 
     const sectionsKeys: ResumeMultipleDragListItemData[] = [
         {
@@ -64,9 +68,22 @@ export const ResumeSectionMultiples = () => {
             {sectionsKeys.map(section => (
                 <Fragment key={`multiple-section-${section.title}`}>
                     <Separator className="" />
-                    <ResumeMultipleDragList data={section} onAdd={() => {}} onEdit={() => {}} />
+                    <ResumeMultipleDragList
+                        data={section}
+                        onAdd={() => setSectionToAdd(section)}
+                        onEdit={() => {}}
+                    />
                 </Fragment>
             ))}
+            {sectionToAdd && (
+                <ManageMultipleItemDialog
+                data={sectionToAdd}
+                open={!!sectionToAdd}
+                setOpen={(value) => {
+                    if(!value) setSectionToAdd(null)
+                }}
+            />
+            )}
         </div>
     )
 }

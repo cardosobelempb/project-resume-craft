@@ -1,16 +1,16 @@
 'use client'
 
 import { Controller, useFormContext } from 'react-hook-form'
-import { Input } from '.'
-import { ComponentProps } from 'react'
+import { Editot } from '.'
 import { FieldWrapper } from '../field-wrapper'
 
-type InputFieldProps = ComponentProps<typeof Input> & {
+type EditorFieldProps = {
     label: string
     name: string
     containerClassName?: string
+    required?: boolean
 }
-export const InputField: React.FC<InputFieldProps> = ({
+export const EditorField: React.FC<EditorFieldProps> = ({
     label,
     name,
     required,
@@ -23,11 +23,15 @@ export const InputField: React.FC<InputFieldProps> = ({
             control={control}
             name={name}
             rules={{
-                required: required && "Campo obrigatório."
+                required: required && 'Campo obrigatório.',
             }}
             render={({ field, fieldState }) => (
-                <FieldWrapper label={label} className={containerClassName} error={fieldState?.error}>
-                    <Input {...props} {...field} />
+                <FieldWrapper
+                    label={label}
+                    className={containerClassName}
+                    error={fieldState?.error}
+                >
+                    <Editot {...props} {...field} />
                 </FieldWrapper>
             )}
         />
