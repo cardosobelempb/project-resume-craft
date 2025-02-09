@@ -1,3 +1,5 @@
+'use client'
+
 import { Separator } from "@/components/ui/separator";
 import { Share2, BriefcaseBusiness, GraduationCap, BicepsFlexed, Languages, FileBadge2, Globe } from "lucide-react";
 import { Fragment } from "react";

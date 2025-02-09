@@ -1,3 +1,5 @@
+'use client'
+
 import { ScrollText } from "lucide-react"
 import { ResumeTitle } from "../../base/resume-title"
 import { Controller, useFormContext } from "react-hook-form"

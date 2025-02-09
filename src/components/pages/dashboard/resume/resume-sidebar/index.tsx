@@ -6,6 +6,8 @@ import { IaGenarationDropdown } from "../base/ia-generation-dropdown"
 import { Separator } from "@/components/ui/separator"
 import { ResumeSectionForm } from "./sections/resume-section-form"
 import { ResumeSectionSummary } from "./sections/resume-section-summary"
+import { ResumeSectionMultiples } from "./sections/resume-section-multiples"
+
 
 
 export const ResumeSidebar = () => {
@@ -13,14 +15,16 @@ export const ResumeSidebar = () => {
         <aside className="w-full h-full p-6 overflow-y-auto">
             <div className="w-full flex items-center justify-between">
                 <Link href="/dashboard/resumes">
-                    <Logo className="w-full max-w-[80px]"/>
+                    <Logo className="w-full max-w-[80px]" />
                 </Link>
-                <IaGenarationDropdown/>
+                <IaGenarationDropdown />
             </div>
-            <Separator className="my-5"/>
-            <ResumeSectionForm/>
-            <Separator className="my-5"/>
-            <ResumeSectionSummary/>
+            <Separator className="my-5" />
+            <ResumeSectionForm />
+            <Separator className="my-5" />
+            <ResumeSectionSummary />
+            <Separator className="my-5" />
+            <ResumeSectionMultiples />
         </aside>
     )
 }

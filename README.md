@@ -16,6 +16,7 @@
 - npm i react-hook-form -S
 - npm install @tiptap/react @tiptap/pm @tiptap/starter-kit
 - npm install @tiptap/extension-underline
+- npm install @hello-pangea/dnd -S
 
 
 ## dependencias Dev

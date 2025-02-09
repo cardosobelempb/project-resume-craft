@@ -11,7 +11,16 @@ type ResuneInfoData = {
     phone: string
     location: string
 }
-// type ResumeStructureData = {}
+
+type ResumeStructureData = {
+    template: ResumeTemplates
+    colorTheme: string
+    layout: {
+        mainSections: ResumeLayoutSection[]
+        sidebarSections: ResumeLayoutSection[]
+    }
+    language: ResumeLanguages
+}
 
 type ResumeSocialMediaData = {
     name: string
@@ -79,4 +88,9 @@ type ResumeContentData = {
     languages: Partial<ResumeLanguageData>[]
     certifications: Partial<ResumeCertificationData>[]
     projects: Partial<ResumeProjectData>[]
+}
+
+type ResumeData = {
+    content: ResumeContentData
+    structure: ResumeStructureData
 }
