@@ -10,7 +10,7 @@ export const ResumeSectionSummary = () => {
     const {control} = useFormContext()
 
     return (
-        <div>
+        <div className="mb-4">
             <ResumeTitle title="Sobre voçê" icon={ScrollText}/>
 
             <Controller

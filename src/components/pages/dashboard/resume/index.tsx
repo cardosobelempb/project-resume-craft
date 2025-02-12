@@ -34,6 +34,15 @@ export const ResumePage = () => {
             skills: [],
             socialMedias: [],
         },
+        structure: {
+            template: undefined,
+            colorTheme: '',
+            layout: {
+                mainSections: [],
+                sidebarSections: []
+            },
+            language: undefined
+        }
     }
     const methods = useForm<ResumeData>({
         defaultValues,

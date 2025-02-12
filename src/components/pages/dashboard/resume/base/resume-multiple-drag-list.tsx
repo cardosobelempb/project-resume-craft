@@ -6,6 +6,7 @@ import { useFieldArray, useFormContext } from "react-hook-form"
 import {DragDropContext, Draggable, DropResult, Droppable} from '@hello-pangea/dnd'
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { Tooltip } from "@/components/ui/tooltip"
 
 export type ResumeArraykeys = Exclude<keyof ResumeContentData, "image" | "infos" | "summary">
 
@@ -39,13 +40,16 @@ export const ResumeMultipleDragList: React.FC<ResumeMultipleDragListProps> = ({d
 
     return (
         <div>
-            <ResumeTitle title={data.title} icon={data.icon} />
+            <ResumeTitle className="mt-4" title={data.title} icon={data.icon} />
 
             <div className="mt-4 flex flex-col">
-
                 {isEmpty && (
-                    <Button variant="outline" className="w-full gap-2" onClick={onAdd}>
-                        <Plus size={16}/>
+                    <Button
+                        variant="outline"
+                        className="w-full gap-2 mb-4"
+                        onClick={onAdd}
+                    >
+                        <Plus size={16} />
                         Adicionar item
                     </Button>
                 )}
@@ -60,10 +64,13 @@ export const ResumeMultipleDragList: React.FC<ResumeMultipleDragListProps> = ({d
                                     className="rounded overflow-hidden border border-muted"
                                 >
                                     {fields.map((field, index) => {
-                                        const titleKey = data.titleKey as keyof typeof field
-                                        const descriptionKey = data.descriptionKey as keyof typeof field
+                                        const titleKey =
+                                            data.titleKey as keyof typeof field
+                                        const descriptionKey =
+                                            data.descriptionKey as keyof typeof field
 
-                                        const isLastItem = index === fields.length - 1
+                                        const isLastItem =
+                                            index === fields.length - 1
 
                                         return (
                                             <Draggable
@@ -90,22 +97,35 @@ export const ResumeMultipleDragList: React.FC<ResumeMultipleDragListProps> = ({d
                                                                 size={14}
                                                             />
                                                         </div>
-                                                        <div className="flex-1 flex flex-col justify-center px-3 cursor-pointer hover:bg-muted/80 transition-all">
-                                                            <p className="text-sm font-title font-bold">
-                                                                {
-                                                                    field[
-                                                                        titleKey
-                                                                    ]
+                                                        <Tooltip
+                                                            content={
+                                                                'Clique para editar'
+                                                            }
+                                                        >
+                                                            <div
+                                                                className="flex-1 flex flex-col justify-center px-3 cursor-pointer hover:bg-muted/80 transition-all"
+                                                                onClick={() =>
+                                                                    onEdit(
+                                                                        index,
+                                                                    )
                                                                 }
-                                                            </p>
-                                                            <p className="text-sm text-muted-foreground">
-                                                                {
-                                                                    field[
-                                                                        descriptionKey
-                                                                    ]
-                                                                }
-                                                            </p>
-                                                        </div>
+                                                            >
+                                                                <p className="text-sm font-title font-bold">
+                                                                    {
+                                                                        field[
+                                                                            titleKey
+                                                                        ]
+                                                                    }
+                                                                </p>
+                                                                <p className="text-sm text-muted-foreground">
+                                                                    {
+                                                                        field[
+                                                                            descriptionKey
+                                                                        ]
+                                                                    }
+                                                                </p>
+                                                            </div>
+                                                        </Tooltip>
                                                     </div>
                                                 )}
                                             </Draggable>
@@ -116,6 +136,17 @@ export const ResumeMultipleDragList: React.FC<ResumeMultipleDragListProps> = ({d
                             )}
                         </Droppable>
                     </DragDropContext>
+                )}
+
+                {!isEmpty && (
+                    <Button
+                        variant="outline"
+                        className="w-full gap-2 mt-4 mb-4"
+                        onClick={onAdd}
+                    >
+                        <Plus size={16} />
+                        Adicionar item
+                    </Button>
                 )}
             </div>
         </div>

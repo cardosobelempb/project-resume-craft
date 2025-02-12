@@ -23,7 +23,6 @@ export const ResumeSidebar = () => {
             <ResumeSectionForm />
             <Separator className="my-5" />
             <ResumeSectionSummary />
-            <Separator className="my-5" />
             <ResumeSectionMultiples />
         </aside>
     )

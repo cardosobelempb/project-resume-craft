@@ -5,10 +5,16 @@ import { Share2, BriefcaseBusiness, GraduationCap, BicepsFlexed, Languages, File
 import { Fragment, useState } from "react";
 import { ResumeMultipleDragList, ResumeMultipleDragListItemData } from "../../base/resume-multiple-drag-list";
 import { ManageMultipleItemDialog } from "../../base/manage-multiple-item-dialog";
+import { useFormContext } from "react-hook-form";
 
 export const ResumeSectionMultiples = () => {
 
+    const {getValues} = useFormContext()
+
     const [sectionToAdd, setSectionToAdd] =
+        useState<ResumeMultipleDragListItemData | null>(null)
+
+    const [initialData, setInitialData] =
         useState<ResumeMultipleDragListItemData | null>(null)
 
     const sectionsKeys: ResumeMultipleDragListItemData[] = [
@@ -63,6 +69,14 @@ export const ResumeSectionMultiples = () => {
         },
     ]
 
+    const onEdit = (section: ResumeMultipleDragListItemData, index: number) => {
+        const currentValue = getValues()
+        const currentItems = currentValue.content[section.formKey]
+
+        setSectionToAdd(section)
+        setInitialData(currentItems[index])
+    }
+
     return (
         <div>
             {sectionsKeys.map(section => (
@@ -71,16 +85,20 @@ export const ResumeSectionMultiples = () => {
                     <ResumeMultipleDragList
                         data={section}
                         onAdd={() => setSectionToAdd(section)}
-                        onEdit={() => {}}
+                        onEdit={(index) => onEdit(section, index)}
                     />
                 </Fragment>
             ))}
             {sectionToAdd && (
                 <ManageMultipleItemDialog
+                initialData={initialData}
                 data={sectionToAdd}
                 open={!!sectionToAdd}
                 setOpen={(value) => {
-                    if(!value) setSectionToAdd(null)
+                    if(!value) {
+                        setSectionToAdd(null)
+                        setInitialData(null)
+                    }
                 }}
             />
             )}
