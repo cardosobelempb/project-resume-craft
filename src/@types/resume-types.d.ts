@@ -26,7 +26,7 @@ type ResumeSections =
 
 type ResumeLayoutSection = {
     id?: string
-    key: ResumeSection
+    key: ResumeSections
 }
 
 type ResumeStructureData = {
