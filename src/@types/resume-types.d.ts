@@ -12,6 +12,23 @@ type ResuneInfoData = {
     location: string
 }
 
+type ResumeLanguages = "english" | "spanish" | "french" | "german" | "italian" | "portuguese"
+
+type ResumeSections =
+    | 'summary'
+    | 'socialMedias'
+    | 'experiences'
+    | 'educations'
+    | 'skills'
+    | 'languages'
+    | 'certifications'
+    | 'projects'
+
+type ResumeLayoutSection = {
+    id?: string
+    key: ResumeSection
+}
+
 type ResumeStructureData = {
     template: ResumeTemplates
     colorTheme: string
@@ -94,3 +111,7 @@ type ResumeData = {
     content: ResumeContentData
     structure: ResumeStructureData
 }
+
+type ResumeTemplates = 'eevee' | 'onix' | 'jynx' | 'ditto'
+
+

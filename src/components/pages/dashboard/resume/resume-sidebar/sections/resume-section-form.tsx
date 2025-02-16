@@ -1,14 +1,14 @@
 'use client'
 
 import { UserRound } from 'lucide-react'
-import { ResumeTitle } from '../../base/resume-title'
+import { SectionTitle } from '../../base/section-title'
 import { InputField } from '@/components/ui/input/field'
 import { SwitchField } from '@/components/ui/switch/field'
 
 export const ResumeSectionForm = () => {
     return (
         <div>
-            <ResumeTitle icon={UserRound} title="Informações Básicas" />
+            <SectionTitle icon={UserRound} title="Informações Básicas" />
             <div className="grid grid-cols-1 gap-4 mt-4 w-full">
                 <div className="col-span-full w-full flex gap-3 items-end">
                     <InputField

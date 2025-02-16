@@ -8,7 +8,7 @@ type ResumeType = {
     className?: string
 }
 
-export const ResumeTitle: React.FC<ResumeType> = ({ icon: Icon, title, className }) => {
+export const SectionTitle: React.FC<ResumeType> = ({ icon: Icon, title, className }) => {
     return (
         <div className={`flex items-center gap-2 ${className}`}>
             <Icon size={18} className="text-muted-foreground" />

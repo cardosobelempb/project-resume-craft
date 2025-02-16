@@ -1,7 +1,7 @@
 "use client"
 
 import { GripVertical, LucideIcon, Plus } from "lucide-react"
-import { ResumeTitle } from "./resume-title"
+import { SectionTitle } from "./section-title"
 import { useFieldArray, useFormContext } from "react-hook-form"
 import {DragDropContext, Draggable, DropResult, Droppable} from '@hello-pangea/dnd'
 import { cn } from "@/lib/utils"
@@ -40,7 +40,11 @@ export const ResumeMultipleDragList: React.FC<ResumeMultipleDragListProps> = ({d
 
     return (
         <div>
-            <ResumeTitle className="mt-4" title={data.title} icon={data.icon} />
+            <SectionTitle
+                className="mt-4"
+                title={data.title}
+                icon={data.icon}
+            />
 
             <div className="mt-4 flex flex-col">
                 {isEmpty && (

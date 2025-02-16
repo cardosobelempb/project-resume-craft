@@ -1,7 +1,7 @@
 'use client'
 
 import { ScrollText } from "lucide-react"
-import { ResumeTitle } from "../../base/resume-title"
+import { SectionTitle } from '../../base/section-title'
 import { Controller, useFormContext } from "react-hook-form"
 import { Editot } from "@/components/ui/editor"
 
@@ -11,13 +11,16 @@ export const ResumeSectionSummary = () => {
 
     return (
         <div className="mb-4">
-            <ResumeTitle title="Sobre voçê" icon={ScrollText}/>
+            <SectionTitle title="Sobre voçê" icon={ScrollText} />
 
             <Controller
                 control={control}
                 name="content.summary"
-                render={({field}) => (
-                    <Editot {...field} className="min-h-[200px] max-h-[300px] mt-4" />
+                render={({ field }) => (
+                    <Editot
+                        {...field}
+                        className="min-h-[200px] max-h-[300px] mt-4"
+                    />
                 )}
             />
         </div>
