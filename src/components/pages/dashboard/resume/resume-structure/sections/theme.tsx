@@ -47,3 +47,5 @@ export const ThemeSection = () => {
         </div>
     )
 }
+
+/* 4.238,52 - 1.761,04 = 2.477,484*/
