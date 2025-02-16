@@ -17,6 +17,7 @@
 - npm install @tiptap/react @tiptap/pm @tiptap/starter-kit
 - npm install @tiptap/extension-underline
 - npm install @hello-pangea/dnd -S
+- $ npm i react-zoom-pan-pinch
 
 
 ## dependencias Dev
