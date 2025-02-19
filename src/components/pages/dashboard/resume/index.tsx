@@ -5,12 +5,13 @@ import {
     ResizablePanel,
     ResizablePanelGroup,
 } from '@/components/ui/resizable'
-import { SidebarContent } from './resume-content'
 import { ResumeSidebar } from './resume-sidebar'
 import { ResumeStructure } from './resume-structure'
 import { FormProvider, useForm } from 'react-hook-form'
+import { ResumeContent } from './resume-content'
 
 export const ResumePage = () => {
+
     const defaultValues: ResumeData = {
         content: {
             image: {
@@ -54,9 +55,12 @@ export const ResumePage = () => {
             },
         }
     }
+
     const methods = useForm<ResumeData>({
         defaultValues,
     })
+
+    const data = methods.watch()
 
     return (
         <FormProvider {...methods}>
@@ -69,7 +73,7 @@ export const ResumePage = () => {
                 </ResizablePanel>
                 <ResizableHandle withHandle />
                 <ResizablePanel>
-                    <SidebarContent />
+                    <ResumeContent data={data}  />
                 </ResizablePanel>
                 <ResizableHandle withHandle />
                 <ResizablePanel minSize={20} maxSize={35} defaultSize={25}>

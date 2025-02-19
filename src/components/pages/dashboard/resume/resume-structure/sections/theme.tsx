@@ -4,6 +4,7 @@ import colors from 'tailwindcss/colors'
 import { Controller, useFormContext } from "react-hook-form"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import { useCallback, useEffect } from "react"
 
 export const ThemeSection = () => {
 
@@ -19,7 +20,22 @@ export const ThemeSection = () => {
         key => !keysToIgnote.includes(key),
     ) as (keyof typeof colors)[]
 
-    const {control} = useFormContext<ResumeData>()
+    const {control, watch} = useFormContext<ResumeData>()
+
+    const currentColorTheme = watch("structure.colorTheme")
+    const handleSetCassVariable = useCallback(() => {
+        if(!currentColorTheme) return
+        const colorKey = currentColorTheme as keyof typeof colors
+
+        document.documentElement.style.setProperty(
+            "--resume-primary",
+            colors[colorKey][500]
+        )
+    },[currentColorTheme])
+
+    useEffect(() => {
+        handleSetCassVariable()
+    }, [handleSetCassVariable])
 
     return (
         <div>

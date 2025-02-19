@@ -1,13 +1,15 @@
-"use client"
+import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch"
+import { ResumeContentTemplate } from "./templates"
+import { ResumeContentHeader } from "./resume-content-header"
+import { ResumeContentFooter } from "./resume-content-footer"
 
-import {TransformWrapper, TransformComponent} from 'react-zoom-pan-pinch'
-import { ResumeContentTemplate } from './templates'
-import { ResumeContentFooter } from './templates/resume-content-footer'
-import { ResumeContentHeader } from './templates/resume-content-header'
+export type BaseResumeProps = {
+    data: ResumeData
+}
 
-export const SidebarContent = () => {
+export const ResumeContent: React.FC<BaseResumeProps> = ({data}) => {
     return (
-        <section className="w-full h-full p-6 overflow-hidden flex items-center justify-center relative bg-muted dark:bg-background">
+        <section>
             <TransformWrapper
                 initialScale={0.5}
                 minScale={0.4}
@@ -16,11 +18,11 @@ export const SidebarContent = () => {
                 limitToBounds={false}
             >
                 <>
-                    <ResumeContentHeader/>
                     <TransformComponent>
-                        <ResumeContentTemplate />
+                        <ResumeContentHeader />
+                        <ResumeContentTemplate data={data} />
+                        <ResumeContentFooter />
                     </TransformComponent>
-                    <ResumeContentFooter />
                 </>
             </TransformWrapper>
         </section>
